@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { hashHistory } from 'react-router';
 import { AppContainer } from 'react-hot-loader';
+import { App } from 'components';
 
 import 'react-fastclick';
 import 'styles';
@@ -18,23 +19,23 @@ const rootElement = document.getElementById('app');
 render(
   <AppContainer>
     <Provider store={store}>
-      <AppRouter history={appHistory} />
+      <App />
     </Provider>
   </AppContainer>,
   rootElement
 );
 
-if (module.hot) {
-  module.hot.accept('./router', () => {
-    const NextAppRouter = require('./router').default;
+// if (module.hot) {
+//   module.hot.accept('./router', () => {
+//     const NextAppRouter = require('./router').default;
 
-    render(
-      <AppContainer>
-        <Provider store={store}>
-          <NextAppRouter history={appHistory} />
-        </Provider>
-      </AppContainer>,
-      rootElement
-    );
-  });
-}
+//     render(
+//       <AppContainer>
+//         <Provider store={store}>
+//           <NextAppRouter history={appHistory} />
+//         </Provider>
+//       </AppContainer>,
+//       rootElement
+//     );
+//   });
+// }

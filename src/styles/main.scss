@@ -1,17 +1,18 @@
 body{
   font-family: "XXX", Arial, sans-serif;
-  font-size: 1 px;
-  line-height: 1 px;
-  min-width: 1 px;
+  font-size: 12px;
+  line-height: 14px;
+  min-width: 320px;
   margin: 0;
   padding: 0;
   background-color: #fff;
+  padding-top: 300px;
 }
 
 .container{
-  max-width: 1px;
+  max-width: 270px;
   margin: 0 auto;
-  padding: 0 1px;
+  padding: 0 10px;
 }
 
 a{
@@ -73,12 +74,13 @@ h6{
 }
 
 input{
-  font-family: "x";
+  font-family: Arial, sans-serif;
   outline: none;
   padding: 0;
   border: none;
   font-weight: normal;
-  font-size: 1px;
+  font-size: 14px;
+  border: 1px solid;
 }
 
 textarea{
@@ -86,6 +88,10 @@ textarea{
   border: none;
 }
 
+.widget {
+  border: 1px solid;
+  padding: 15px;
+}
 .col{
   float: left;
   padding: 0 15px;
@@ -104,4 +110,20 @@ textarea{
   content:"";
   display:block;
   clear:both;
+}
+
+.dropdown {
+  display: none;
+  ul {
+    overflow: auto;
+    max-height: 300px;
+  }
+}
+
+.inputs-wrap {
+  display: none;
+}
+
+.show {
+  display: block !important;
 }
