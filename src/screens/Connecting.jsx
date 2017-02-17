@@ -6,7 +6,7 @@ import * as connectActions from '../actions/connectActions';
 export default class Loader extends Component {
   componentDidMount() {
     setTimeout(() => {
-      this.props.changeStage('sms')
+      this.props.changeStage('sms');
     }, 2000)
   }
   render() {

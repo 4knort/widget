@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { SelectBank, Start, Sms, Step1, Step2, Step3, Success } from "screens";
+import { SelectBank, Connecting, Sms, Step1, Step2, Step3, Success } from "screens";
 
 const App = ({ stage }) => {
   const screens = {
     selectBank: SelectBank,
-    start: Start,
+    connecting: Connecting,
     sms: Sms,
     step1: Step1,
     step2: Step2,

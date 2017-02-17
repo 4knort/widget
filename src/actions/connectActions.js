@@ -16,14 +16,58 @@ export function fetchBanks(query) {
   };
 }
 
-export function sendData(data, stage) {
+function successLogin() {
+  return {
+    type: types.SUCCESS_LOGIN,
+    payload: 'connecting'
+  }
+}
+
+function errorLogin() {
+  return {
+    type: types.ERROR_LOGIN,
+    payload: 'errorLogin'
+  }
+}
+
+function successSmsSend() {
+  return {
+    type: types.SUCCESS_SMS,
+    payload: 'step1'
+  }
+}
+
+function errorSmsSend() {
+  return {
+    type: types.ERROR_SMS,
+    payload: 'step1'
+  }
+}
+
+export function sendData(data) {
   return function thunkFetch(dispatch) {
     axios.post('url', data)
     .then(response => {
-      dispatch(changeStage(stage))
+      dispatch(successLogin());
     })
+
     .catch(( ) => {
-      dispatch(changeStage(stage))
+      dispatch(successLogin());
+      // dispatch(errorLogin())
+    })
+  }
+}
+
+export function sendSmsData(sms) {
+  return function thunkFetch(dispatch) {
+    axios.post('url', sms)
+    .then(response => {
+    dispatch(successSmsSend());
+    })
+
+    .catch(( ) => {
+      dispatch(successSmsSend());
+      // dispatch(errorSmsSend());
     })
   }
 }

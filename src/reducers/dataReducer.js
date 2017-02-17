@@ -50,6 +50,30 @@ export default function dataReducer(state = initialState, action) {
       banks: action.payload.slice(0),
       }
     }
+    case types.SUCCESS_LOGIN: {
+      return {
+      ...state,
+      stage: action.payload,
+      }
+    }
+    case types.SUCCESS_SMS: {
+      return {
+      ...state,
+      stage: action.payload,
+      }
+    }
+    case types.ERROR_SMS: {
+      return {
+      ...state,
+      stage: action.payload,
+      }
+    }
+    case types.ERROR_LOGIN: {
+      return {
+      ...state,
+      stage: action.payload,
+      }
+    }
     case types.CHANGE_STAGE: {
       return {
       ...state,
