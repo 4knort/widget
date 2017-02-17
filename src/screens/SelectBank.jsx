@@ -3,24 +3,27 @@ import { connect } from 'react-redux';
 import { Typeahead } from 'react-bootstrap-typeahead';
 import { Input } from 'components';
 import { Field, reduxForm }   from 'redux-form'
+import axios from 'axios'
 import * as connectActions from '../actions/connectActions';
 
 @reduxForm({
   form: 'login',
-  fields: ['login', 'password'],
 })
 @connect( state => ({
   banks: state.dataReducer.banks,
-  fields: state.dataReducer.fields,
+  inputFields: state.dataReducer.inputFields,
 }), connectActions)
 export default class SelectBank extends Component {
   componentWillMount() {
     this.props.fetchBanks();
   }
 
-  handleFormSubmit = ({login, password}) => {
-    console.log(login, password)
+  handleFormSubmit = (dataObj) => {
+    // console.log(dataObj);
+    // axios.post('url', dataObj);
+    this.props.dispatch(this.props.sendData(dataObj))
   }
+
   state = {
     loginOpened: false,
   }
@@ -32,17 +35,26 @@ export default class SelectBank extends Component {
   }
 
   render() {
-    const { handleSubmit, fields: {login, password} } = this.props
+    const { handleSubmit, pristine, submitting, reset } = this.props;
+    const required = value => value ? undefined : 'Required';
     const banksList = this.props.banks.map( (bank, index) => {
       return bank.title
     })
     const inputWrapClass = this.state.loginOpened ? "inputs-wrap show" : "inputs-wrap"
-    const inputs = this.props.fields.map( (field, index) => {
-      return <Field field={field} key={`input ${index}`} component={Input} type={field.nature} name={field.name} label={field.localized_name} />
+    const inputs = this.props.inputFields.map( (field, index) => {
+      return <Field 
+        validate={[ required ]} 
+        field={field} 
+        key={`input ${index}`} 
+        component={Input} 
+        type={field.nature} 
+        name={field.name} 
+        label={field.localized_name} 
+      />
     })
 
     return (
-      <div className="widget">
+      <div>
         <div className="logo">Connect</div>
         <form action="" onSubmit={handleSubmit(this.handleFormSubmit)}>
           <Typeahead
@@ -58,7 +70,7 @@ export default class SelectBank extends Component {
           <div>
             <br/>
             <br/>
-            <input type="button" value="Cancel" onClick={this.onCancelClick} />
+            <input type="button" value="Cancel" disabled={pristine || submitting} onClick={reset} />
             &nbsp;
             <input type="submit" value="Submit"/>
           </div>

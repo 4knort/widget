@@ -1,10 +1,12 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { SelectBank } from "screens";
+import { SelectBank, Loader, LoaderSms } from "screens";
 
 const App = ({ stage }) => {
   const screens = {
     selectBank: SelectBank,
+    loader: Loader,
+    loaderSms: LoaderSms,
   }
 
   const getScreen = () => {
@@ -15,7 +17,9 @@ const App = ({ stage }) => {
 
   return <div className="app">
     <div className="container">
+      <div className="widget">
       {getScreen()}
+      </div>
     </div>
   </div>
 }
@@ -23,30 +27,3 @@ const App = ({ stage }) => {
 export default connect( state => ({
   stage: state.dataReducer.stage,
 }), null)(App);
-
-// @connect( state => ({
-//   stage: state.stageReducer.stage,
-// }), null)
-// export default class App extends PureComponent {
-//   componentWillMount {
-//     this.props.fetchBanks();
-//   }
-
-//   screens = {
-//     selectBank: SelectBank,
-//   }
-
-//   getScreen = () => {
-//     const Component = this.screens[this.props.stage]
-
-//     return Component ? <Component /> : (stage + " has no screen")
-//   }
-
-//   render() {
-//     return <div className="app">
-//       <div className="container">
-//         {this.getScreen()}
-//       </div>
-//     </div>
-//   }
-// }

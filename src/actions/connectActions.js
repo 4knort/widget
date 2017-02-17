@@ -15,3 +15,22 @@ export function fetchBanks() {
     });
   };
 }
+
+export function sendData(data) {
+  return function thunkFetch(dispatch) {
+    axios.post('url', data)
+    .then(response => {
+      dispatch(changeStage('loader'))
+    })
+    .catch(( ) => {
+      dispatch(changeStage('loader'))
+    })
+  }
+}
+
+export function changeStage(stage) {
+  return {
+    type: types.CHANGE_STAGE,
+    payload: stage,
+  }
+}

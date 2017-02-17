@@ -1,24 +1,29 @@
 import React from 'react';
+import { Field } from 'redux-form';
 
 const Input = ( props ) => {
-  if ( props.field.nature === 'select' ) {
-    
-    const options = props.field.field_options.map( (option, index) => {
+  const { field, input } = props;
+  const { touched, error } = props.meta;
+  
+  if ( field.nature === 'select' ) {
+    const options = field.field_options.map( (option, index) => {
       return <option key={`option ${index}`} value={option.option_value} selected={option.selected}>{option.localized_name}</option>
     })
 
     return (
-        <div>
-        <select name="" id="">
+      <div>
+        <Field component="select" name={field.name} id="">
           {options}
-        </select>
+        </Field>
       </div>
     )
   }
+
   return (
       <div>
-      <label htmlFor="">{props.field.localized_name}</label>
-      <input {...props.input} type={props.field.nature} name={props.field.name}/>
+      <label htmlFor="">{field.localized_name}</label>
+      <input {...input} type={field.nature} name={field.name}/>
+      { touched && error && <span>{error}</span> }
     </div>
   )
 }

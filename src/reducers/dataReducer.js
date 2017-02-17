@@ -3,7 +3,7 @@ import * as types from 'constants/actionTypes';
 const initialState = {
   stage: "selectBank",
   banks: [],
-  fields: [
+  inputFields: [
     {
       name: "login", 
       english_name: "Login", 
@@ -12,9 +12,9 @@ const initialState = {
       position: 1,
     },
     {
-      name: "Password", 
-      english_name: "Password", 
-      localized_name: "Password", 
+      name: "password", 
+      english_name: "password", 
+      localized_name: "password", 
       nature: "password", 
       position: 2,
     },
@@ -39,6 +39,12 @@ export default function dataReducer(state = initialState, action) {
       return {
       ...state,
       banks: action.payload.slice(0),
+      }
+    }
+    case types.CHANGE_STAGE: {
+      return {
+      ...state,
+      stage: action.payload,
       }
     }
     default: {
