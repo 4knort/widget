@@ -20,7 +20,7 @@ export default class SelectBank extends Component {
   }
 
   handleFormSubmit = (dataObj) => {
-    this.props.dispatch(this.props.sendData(dataObj))
+    this.props.sendData(dataObj)
   }
 
   state = {

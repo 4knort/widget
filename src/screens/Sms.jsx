@@ -16,7 +16,7 @@ export default class Loader extends Component {
   }
 
   handleFormSubmit = ({ sms }) => {
-    this.props.dispatch(this.props.sendSmsData(sms))
+    this.props.sendSmsData(sms);
   }
 
   render() {
