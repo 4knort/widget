@@ -8,10 +8,10 @@ function setBanks(data) {
   };
 }
 
-export function fetchBanks() {
+export function fetchBanks(query) {
   return function thunkFetch(dispatch) {
-    axios.get('./banks.json').then(response => {
-      dispatch(setBanks(response.data));
+    axios.get(`https://api.github.com/search/users?q=${query}`).then(response => {
+      dispatch(setBanks(response.data.items));
     });
   };
 }

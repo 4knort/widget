@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Typeahead } from 'react-bootstrap-typeahead';
+import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import { Input } from 'components';
 import { Field, reduxForm }   from 'redux-form'
 import axios from 'axios'
@@ -14,13 +14,12 @@ import * as connectActions from '../actions/connectActions';
   inputFields: state.dataReducer.inputFields,
 }), connectActions)
 export default class SelectBank extends Component {
-  componentWillMount() {
-    this.props.fetchBanks();
+
+  handleSearch = (query) => {
+    this.props.fetchBanks(query);
   }
 
   handleFormSubmit = (dataObj) => {
-    // console.log(dataObj);
-    // axios.post('url', dataObj);
     this.props.dispatch(this.props.sendData(dataObj, "loader"))
   }
 
@@ -57,10 +56,25 @@ export default class SelectBank extends Component {
       <div>
         <div className="logo">Connect</div>
         <form action="" onSubmit={handleSubmit(this.handleFormSubmit)}>
-          <Typeahead
-            onChange={this.showLogin}
-            minLength={1}
-            options={banksList}
+          
+          <AsyncTypeahead
+            labelKey="login"
+            onSearch={this.handleSearch}
+            options={this.props.banks}
+            placeholder="Search for a Github user..."
+            renderMenuItemChildren = {(option, props, index) => (
+              <div>
+                <img
+                  src={option.avatar_url}
+                  style={{
+                    height: '24px',
+                    marginRight: '10px',
+                    width: '24px',
+                  }}
+                />
+                <span>{option.login}</span>
+              </div>
+            )}
           />
           <div className={inputWrapClass}>
             <br/>
