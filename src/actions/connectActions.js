@@ -16,14 +16,14 @@ export function fetchBanks() {
   };
 }
 
-export function sendData(data) {
+export function sendData(data, stage) {
   return function thunkFetch(dispatch) {
     axios.post('url', data)
     .then(response => {
-      dispatch(changeStage('loader'))
+      dispatch(changeStage(stage))
     })
     .catch(( ) => {
-      dispatch(changeStage('loader'))
+      dispatch(changeStage(stage))
     })
   }
 }

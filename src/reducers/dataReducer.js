@@ -30,6 +30,15 @@ const initialState = {
     //   ], 
     //   position: 3,
     // },
+  ],
+  inputFieldsSms: [
+    {
+      name: "sms", 
+      english_name: "sms", 
+      localized_name: "sms", 
+      nature: "text", 
+      position: 1,
+    },
   ]
 };
 

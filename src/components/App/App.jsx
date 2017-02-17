@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { SelectBank, Loader, LoaderSms } from "screens";
+import { SelectBank, Loader, LoaderSms, LoaderFinal } from "screens";
 
 const App = ({ stage }) => {
   const screens = {
     selectBank: SelectBank,
     loader: Loader,
     loaderSms: LoaderSms,
+    loaderFinal: LoaderFinal,
   }
 
   const getScreen = () => {

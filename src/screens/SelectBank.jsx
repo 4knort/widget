@@ -21,7 +21,7 @@ export default class SelectBank extends Component {
   handleFormSubmit = (dataObj) => {
     // console.log(dataObj);
     // axios.post('url', dataObj);
-    this.props.dispatch(this.props.sendData(dataObj))
+    this.props.dispatch(this.props.sendData(dataObj, "loader"))
   }
 
   state = {
