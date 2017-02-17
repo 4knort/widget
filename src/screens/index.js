@@ -1,4 +1,8 @@
 export SelectBank from './SelectBank';
-export Loader from './Loader';
-export LoaderFinal from './LoaderFinal';
-export LoaderSms from './LoaderSms';
+export Start from './Start';
+export Sms from './Sms';
+export Step1 from './Step1';
+export Step2 from './Step2';
+export Step3 from './Step3';
+export Success from './Success';
+

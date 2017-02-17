@@ -17,7 +17,7 @@ export default class Loader extends Component {
 
   handleFormSubmit = (dataObj) => {
     console.log(dataObj);
-    this.props.dispatch(this.props.sendData(dataObj, "loaderFinal"))
+    this.props.dispatch(this.props.sendData(dataObj, "step1"))
   }
 
   render() {

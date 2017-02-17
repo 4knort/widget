@@ -7,8 +7,8 @@ export default class Loader extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-
-    })
+      this.props.changeStage('success')
+    }, 1500)
   }
   render() {
     return (
@@ -16,8 +16,8 @@ export default class Loader extends Component {
         <img src="http://cdn.idevie.com/wp-content/uploads/2013/01/LoadingCircle_finalani2.gif" alt=""/>
         <ul>
           <li className="active">step1</li>
-          <li>step2</li>
-          <li>step3</li>
+          <li className="active">step2</li>
+          <li className="active">step3</li>
         </ul>
       </div>
     )

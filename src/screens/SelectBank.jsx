@@ -20,7 +20,7 @@ export default class SelectBank extends Component {
   }
 
   handleFormSubmit = (dataObj) => {
-    this.props.dispatch(this.props.sendData(dataObj, "loader"))
+    this.props.dispatch(this.props.sendData(dataObj, "start"))
   }
 
   state = {
@@ -59,6 +59,7 @@ export default class SelectBank extends Component {
           
           <AsyncTypeahead
             labelKey="login"
+            onChange={this.showLogin}
             onSearch={this.handleSearch}
             options={this.props.banks}
             placeholder="Search for a Github user..."
