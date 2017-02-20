@@ -128,10 +128,21 @@ textarea{
 .show {
   display: block !important;
 }
-ul > li.active {
-  background-color: green;
-}
 
+.connect-steps {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  padding-bottom: 15px;
+  .connect-step {
+    margin-bottom: 10px;
+    font-size: 14px;
+    &.active {
+      font-weight: bold;
+    }
+  }
+}
 .widget-container {
   max-width: 320px;
   width: 100%;
@@ -149,11 +160,23 @@ ul > li.active {
 .logo{
   text-align: center;
   padding: 30px;
-  margin-bottom: 15px;
   display: block;
   text-transform: uppercase;
   font-size: 15px;
   color: #fff;
+  position: relative;
+  max-width: 150px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 0;
+    background: url('https://www.saltedge.com/assets/saltedge/saltedge-logo-aec77f40cb3feb58463b49eedb77a332.svg') no-repeat;
+    width: 30px;
+    height: 35px;
+  }
 }
 .dropdown-menu {
   width: 100%;
@@ -291,6 +314,9 @@ ul > li.active {
     transition: background-color 0.3s;
     background-color: #455598;
     border: none;
+    &-full {
+      width: 100%;
+    }
     &:disabled {
       background-color: #ccc;
     }
@@ -347,4 +373,66 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 .form-buttons-wrap {
   display: flex;
   padding-top: 20px;
+}
+
+select {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.loader {
+  img {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  }
+}
+.close {
+  position: absolute;
+  top: 6px;
+  right: 19px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 1;
+  &:hover {
+    opacity: 1;
+  }
+  &:hover:after,
+  &:hover:before {
+    background-color: rgba(255, 255, 255, 1);
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 19px;
+    transform:rotate(45deg);
+    top: 13px;
+    left: 2px;
+    background-color: rgba(255, 255, 255, .65);
+    transition: background-color 0.3s;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 19px;
+    transform:rotate(-45deg);
+    top: 13px;
+    left: 2px;
+    background-color: rgba(255, 255, 255, .65);
+    transition: background-color 0.3s;
+  }
+}
+.success {
+  text-align: center;
+  font-size: 14px;
+  padding-bottom: 15px;
+  strong {
+    margin-bottom: 15px;
+    display: block;
+  }
 }

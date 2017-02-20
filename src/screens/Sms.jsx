@@ -28,13 +28,13 @@ export default class Loader extends Component {
         label={field.localized_name} 
       />
     })
-    
+
     return (
-      <div>
-        <img src="http://cdn.idevie.com/wp-content/uploads/2013/01/LoadingCircle_finalani2.gif" alt=""/>
+      <div className="loader">
+        <img src="http://www.centurylink.com/etc/designs/ewcm/clientlib/images/loading_spinner.gif" alt=""/>
         <form action=""  onSubmit={handleSubmit(this.handleFormSubmit)}>
           {inputs}
-          <input type="submit" value="Submit"/>
+          <input type="submit" className="submit submit-full" value="Submit"/>
         </form>
       </div>
     )

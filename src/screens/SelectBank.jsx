@@ -59,8 +59,8 @@ export default class SelectBank extends Component {
     return (
       <div>
         <form action="" onSubmit={handleSubmit(this.handleFormSubmit)}>
-          
-          <AsyncTypeahead
+          <div className="input-wrap">
+           <AsyncTypeahead
             labelKey="login"
             onChange={this.showLogin}
             onSearch={this.handleSearch}
@@ -79,7 +79,8 @@ export default class SelectBank extends Component {
                 <span>{option.login}</span>
               </div>
             )}
-          />
+          /> 
+          </div>       
           <div className={inputWrapClass}>
             {inputs}
           </div>

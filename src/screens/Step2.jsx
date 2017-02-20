@@ -12,12 +12,12 @@ export default class Loader extends Component {
   }
   render() {
     return (
-      <div>
-        <img src="http://cdn.idevie.com/wp-content/uploads/2013/01/LoadingCircle_finalani2.gif" alt=""/>
-        <ul>
-          <li className="active">step1</li>
-          <li className="active">step2</li>
-          <li>step3</li>
+      <div className="loader">
+        <img src="http://www.centurylink.com/etc/designs/ewcm/clientlib/images/loading_spinner.gif" alt=""/>
+        <ul className="connect-steps">
+          <li className="connect-step active">step1</li>
+          <li className="connect-step active">step2</li>
+          <li className="connect-step">step3</li>
         </ul>
       </div>
     )
