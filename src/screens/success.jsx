@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as connectActions from '../actions/connectActions';
 
-@connect( null, connectActions)
-export default class Loader extends Component {
-  //bad example view knows about state
-  // componentDidMount() {
-  //   setTimeout(() => {
-  //     this.props.changeStage('selectBank')
-  //   }, 1500)
-  // }
+class Success extends Component {
+  // bad example view knows about state
+  componentDidMount() {
+    setTimeout(() => {
+      this.props.changeStage('selectBank')
+    }, 1500)
+  }
   render() {
     return (
       <div className="success">
@@ -19,3 +18,5 @@ export default class Loader extends Component {
     )
   }
 }
+
+export default connect( null, connectActions)(Success);

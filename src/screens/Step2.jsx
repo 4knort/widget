@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as connectActions from '../actions/connectActions';
 
-@connect( null, connectActions)
-export default class Loader extends Component {
+class Step2 extends Component {
   //bad example view knows about state
   componentDidMount() {
     setTimeout(() => {
@@ -23,3 +22,5 @@ export default class Loader extends Component {
     )
   }
 }
+
+export default connect( null, connectActions)(Step2);

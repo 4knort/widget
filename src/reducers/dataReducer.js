@@ -18,18 +18,18 @@ const initialState = {
       nature: "password", 
       position: 2,
     },
-    // {
-    //   name: "select", 
-    //   english_name: "select", 
-    //   localized_name: "select", 
-    //   nature: "select",
-    //   field_options: [
-    //     {name: "1", english_name: "Item 1", localized_name: "Item 1", option_value: "1", selected: false},
-    //     {name: "2", english_name: "Item 2", localized_name: "Item 2", option_value: "2", selected: false},
-    //     {name: "3", english_name: "Item 3", localized_name: "Item 3", option_value: "3", selected: false},
-    //   ], 
-    //   position: 3,
-    // },
+    {
+      name: "select", 
+      english_name: "select", 
+      localized_name: "select", 
+      nature: "select",
+      field_options: [
+        {name: "1", english_name: "Item 1", localized_name: "Item 1", option_value: "1", selected: false},
+        {name: "2", english_name: "Item 2", localized_name: "Item 2", option_value: "2", selected: false},
+        {name: "3", english_name: "Item 3", localized_name: "Item 3", option_value: "3", selected: false},
+      ], 
+      position: 3,
+    },
   ],
   inputFieldsSms: [
     {

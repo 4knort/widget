@@ -151,6 +151,7 @@ textarea{
   margin-left: -160px;
   margin-top: -240px;
   position: fixed;
+  height: 444px;
 }
 .header {
   background-color: #455598;
@@ -167,7 +168,6 @@ textarea{
   position: relative;
   max-width: 150px;
   margin: 0 auto;
-  margin-bottom: 15px;
   &:before {
     content: "";
     position: absolute;
@@ -184,8 +184,9 @@ textarea{
 
 .login {
   background-color: #fff;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+  height: 100%;
+  border-radius:3px;
+  position: relative;
   .auth-wrap {
     border-bottom: 1px solid #e1e1e1;
     position: relative;
@@ -307,6 +308,7 @@ textarea{
 
   .submit {
     width: 50%;
+    border-bottom-right-radius:3px;
     padding: 20px 0;
     color: #FFF;
     font-size: 17px;
@@ -350,6 +352,7 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
   &:disabled {
     background-color: #c1c1c1;
   }
+  border-bottom-left-radius:3px;
   width: 50%;
   border: none;
   padding: 20px 0;
@@ -358,6 +361,7 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
   cursor: pointer;
   background-color: #455598;
   transition: background-color 0.3s;
+  border-right: 1px solid #c1c1c1;
   &.priora-color:hover {
     background-color: #455598;
   }
@@ -372,7 +376,9 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 }
 .form-buttons-wrap {
   display: flex;
-  padding-top: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 select {
@@ -431,6 +437,7 @@ select {
   text-align: center;
   font-size: 14px;
   padding-bottom: 15px;
+  padding-top: 15px;
   strong {
     margin-bottom: 15px;
     display: block;

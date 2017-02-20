@@ -6,14 +6,7 @@ import { Field, reduxForm }   from 'redux-form'
 import axios from 'axios'
 import * as connectActions from '../actions/connectActions';
 
-@reduxForm({
-  form: 'login',
-})
-@connect( state => ({
-  users: state.dataReducer.users,
-  inputFields: state.dataReducer.inputFields,
-}), connectActions)
-export default class SelectBank extends Component {
+class SelectBank extends Component {
 
   handleSearch = (query) => {
     this.props.fetchUsers(query);
@@ -86,7 +79,6 @@ export default class SelectBank extends Component {
           </div>
           <div className="form-buttons-wrap">
             <input type="button" className="reset" value="Cancel" disabled={pristine || submitting} onClick={reset} />
-            &nbsp;
             <input type="submit" className="submit" value="Submit"/>
           </div>
         </form>
@@ -94,3 +86,12 @@ export default class SelectBank extends Component {
     )
   }
 }
+
+SelectBank = reduxForm({
+  form: 'login',
+})(SelectBank);
+SelectBank = connect( state => ({
+  users: state.dataReducer.users,
+  inputFields: state.dataReducer.inputFields,
+}), connectActions)(SelectBank);
+export default SelectBank;
