@@ -20,8 +20,12 @@ const App = ({ stage }) => {
   }
 
   return <div className="app">
-    <div className="container">
-      <div className="widget">
+    <div className="widget-container">
+      <div className="login">
+      <span className="close"></span>
+      <div className="header header-main header-start">
+        <span className="logo">Connect</span>
+      </div>
       {getScreen()}
       </div>
     </div>

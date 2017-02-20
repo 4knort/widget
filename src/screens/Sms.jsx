@@ -11,9 +11,6 @@ import * as connectActions from '../actions/connectActions';
   inputFieldsSms: state.dataReducer.inputFieldsSms,
 }), connectActions)
 export default class Loader extends Component {
-  componentDidMount() {
-
-  }
 
   handleFormSubmit = ({ sms }) => {
     this.props.sendSmsData(sms);
@@ -24,13 +21,14 @@ export default class Loader extends Component {
     const inputs = this.props.inputFieldsSms.map( (field, index) => {
       return <Field 
         field={field} 
-        key={`input ${index}`} 
+        key={`input-${index}`} 
         component={Input} 
         type={field.nature} 
         name={field.name} 
         label={field.localized_name} 
       />
     })
+    
     return (
       <div>
         <img src="http://cdn.idevie.com/wp-content/uploads/2013/01/LoadingCircle_finalani2.gif" alt=""/>

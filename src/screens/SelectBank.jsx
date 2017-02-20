@@ -10,23 +10,27 @@ import * as connectActions from '../actions/connectActions';
   form: 'login',
 })
 @connect( state => ({
-  banks: state.dataReducer.banks,
+  users: state.dataReducer.users,
   inputFields: state.dataReducer.inputFields,
 }), connectActions)
 export default class SelectBank extends Component {
 
   handleSearch = (query) => {
-    this.props.fetchBanks(query);
+    this.props.fetchUsers(query);
   }
 
   handleFormSubmit = (dataObj) => {
     this.props.sendData(dataObj)
   }
 
+  //bad example
+  // used here because input json hardcoded
   state = {
     loginOpened: false,
   }
 
+  //bad example
+  // used here because input json hardcoded
   showLogin = () => {
     this.setState({
       loginOpened: true,
@@ -36,7 +40,7 @@ export default class SelectBank extends Component {
   render() {
     const { handleSubmit, pristine, submitting, reset } = this.props;
     const required = value => value ? undefined : 'Required';
-    const banksList = this.props.banks.map( (bank, index) => {
+    const usersList = this.props.users.map( (bank, index) => {
       return bank.title
     })
     const inputWrapClass = this.state.loginOpened ? "inputs-wrap show" : "inputs-wrap"
@@ -54,14 +58,13 @@ export default class SelectBank extends Component {
 
     return (
       <div>
-        <div className="logo">Connect</div>
         <form action="" onSubmit={handleSubmit(this.handleFormSubmit)}>
           
           <AsyncTypeahead
             labelKey="login"
             onChange={this.showLogin}
             onSearch={this.handleSearch}
-            options={this.props.banks}
+            options={this.props.users}
             placeholder="Search for a Github user..."
             renderMenuItemChildren = {(option, props, index) => (
               <div>
@@ -78,16 +81,12 @@ export default class SelectBank extends Component {
             )}
           />
           <div className={inputWrapClass}>
-            <br/>
-            <br/>
             {inputs}
           </div>
-          <div>
-            <br/>
-            <br/>
-            <input type="button" value="Cancel" disabled={pristine || submitting} onClick={reset} />
+          <div className="form-buttons-wrap">
+            <input type="button" className="reset" value="Cancel" disabled={pristine || submitting} onClick={reset} />
             &nbsp;
-            <input type="submit" value="Submit"/>
+            <input type="submit" className="submit" value="Submit"/>
           </div>
         </form>
       </div>

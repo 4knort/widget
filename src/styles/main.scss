@@ -7,6 +7,7 @@ body{
   padding: 0;
   background-color: #fff;
   padding-top: 300px;
+  background-color: #ccc;
 }
 
 .container{
@@ -129,4 +130,221 @@ textarea{
 }
 ul > li.active {
   background-color: green;
+}
+
+.widget-container {
+  max-width: 320px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  margin-left: -160px;
+  margin-top: -240px;
+  position: fixed;
+}
+.header {
+  background-color: #455598;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.logo{
+  text-align: center;
+  padding: 30px;
+  margin-bottom: 15px;
+  display: block;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #fff;
+}
+.dropdown-menu {
+  width: 100%;
+}
+
+.login {
+  background-color: #fff;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  .auth-wrap {
+    border-bottom: 1px solid #e1e1e1;
+    position: relative;
+    a{
+      text-decoration: none;
+      position: relative;
+      display: block;
+      padding: 20px;
+
+      &:after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 2px;
+      background-color: #dfdfdf;
+      top: 43px;
+      right: 17px;
+      transform: rotate(45deg);
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 2px;
+        background-color: #dfdfdf;
+        top: 51px;
+        right: 17px;
+        transform: rotate(-45deg);
+      }
+    }
+    &-span {
+      display: block;
+      font-size: 13px;
+      line-height: 22px;
+      padding-bottom: 3px;
+      color: #b8b8b8;
+    }
+    &-text {
+      font-family: "Open Sans", Arial, sans-serif;
+      outline: none;
+      padding: 0;
+      border: none;
+      font-weight: normal;
+      font-size: 17px;
+      color: #000;
+    }
+  }
+  .label {
+    display: block;
+    font-size: 13px;
+    line-height: 22px;
+    padding-bottom: 3px;
+    color: #b8b8b8;
+    text-align: left;
+    padding-left: 0;
+  }
+  .input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    &-checkbox {
+      display: none;
+    }
+    &-insert {
+      max-width: 330px;
+      margin: 0 auto;
+      border-bottom: 2px solid #005da7;
+      padding: 28px 10px;
+      box-sizing: border-box;
+      display: block;
+    }
+    &-wrap {
+      padding: 20px 20px;
+      border-bottom: 1px solid #e1e1e1;
+      position: relative;
+      &.priora-color {
+        border-color: #455598;
+      }
+      .error {
+        color: red;
+      }
+      a {
+        text-decoration: none;
+      }
+      &-security {
+        border-bottom: none;
+      }
+      &-checkbox {
+        padding: 0;
+      }
+      &-insert {
+        border-bottom: none;
+        margin-bottom: 30px;
+        .input-wrap {
+          padding-bottom: 11px;
+        }
+      }
+    }
+  }
+
+  .form {
+    background-color: #FFF;
+    &-choose-payment {
+      max-height: 300px;
+      overflow: auto;
+    }
+    &-payment {
+      min-height: 314px;
+      max-height: 314px;
+      overflow: auto;
+      .input-wrap {
+        border-bottom: #000;
+      }
+    }
+    &-security {
+      padding-bottom: 85px;
+    }
+  }
+
+  .submit {
+    width: 50%;
+    padding: 20px 0;
+    color: #FFF;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: #455598;
+    border: none;
+    &:disabled {
+      background-color: #ccc;
+    }
+    &-inner {
+      height: 63px;
+      width: 80%;
+      font-size: 17px;
+    }
+    &.priora-color {
+      background-color: #455598;
+    }
+  }
+}
+
+.login .input-checkbox:checked + .checkbox-label.priora-color:before {
+  border-color: #455598;
+  background-color: #455598;
+}
+
+.login .input-checkbox:checked + .checkbox-label:after {
+  background: image-url("widget/checkbox-active.svg") no-repeat;
+  transform: rotate(0);
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+.reset {
+  &:disabled {
+    background-color: #c1c1c1;
+  }
+  width: 50%;
+  border: none;
+  padding: 20px 0;
+  color: #FFF;
+  font-size: 17px;
+  cursor: pointer;
+  background-color: #455598;
+  transition: background-color 0.3s;
+  &.priora-color:hover {
+    background-color: #455598;
+  }
+  &-inner {
+    height: 63px;
+    width: 80%;
+    font-size: 17px;
+  }
+  &.priora-color {
+    background-color: #455598;
+  }
+}
+.form-buttons-wrap {
+  display: flex;
+  padding-top: 20px;
 }

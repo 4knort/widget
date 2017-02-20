@@ -1,4 +1,4 @@
-export const SET_BANKS = 'SET_BANKS';
+export const SET_USERS = 'SET_USERS';
 export const CHANGE_STAGE = 'CHANGE_STAGE';
 export const SUCCESS_LOGIN = 'SUCCESS_LOGIN';
 export const ERROR_LOGIN = 'ERROR_LOGIN';

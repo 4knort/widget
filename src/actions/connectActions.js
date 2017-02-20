@@ -1,17 +1,17 @@
 import axios from 'axios';
 import * as types from 'constants/actionTypes';
 
-function setBanks(data) {
+function setUsers(data) {
   return {
-    type: types.SET_BANKS,
+    type: types.SET_USERS,
     payload: data,
   };
 }
 
-export function fetchBanks(query) {
+export function fetchUsers(query) {
   return function thunkFetch(dispatch) {
     axios.get(`https://api.github.com/search/users?q=${query}`).then(response => {
-      dispatch(setBanks(response.data.items));
+      dispatch(setUsers(response.data.items));
     });
   };
 }
@@ -45,7 +45,7 @@ function errorSmsSend() {
 }
 
 export function sendData(data) {
-  return function thunkFetch(dispatch) {
+  return function thunkSendData(dispatch) {
     axios.post('url', data)
     .then(response => {
       dispatch(successLogin());
@@ -59,7 +59,7 @@ export function sendData(data) {
 }
 
 export function sendSmsData(sms) {
-  return function thunkFetch(dispatch) {
+  return function thunkSensSms(dispatch) {
     axios.post('url', sms)
     .then(response => {
     dispatch(successSmsSend());
