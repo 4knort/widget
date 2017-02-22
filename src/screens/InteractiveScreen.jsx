@@ -7,14 +7,13 @@ import * as connectActions from '../actions/connectActions';
 class InteractiveScreen extends Component {
 
   handleFormSubmit = ({ data }) => {
-    this.props.sendSmsData(data);
+    this.props.sendInteractiveData(data);
   }
 
   render() {
     const imageHTML = {__html: this.props.html}
     const { handleSubmit, pristine, submitting, reset } = this.props;
     const inputs = this.props.interactiveFieldsNames.map( (field, index) => {
-      console.log(field)
       return <Field 
         field={field} 
         key={`input-${index}`} 
@@ -29,7 +28,7 @@ class InteractiveScreen extends Component {
       <div className="loader">
         <img src="http://www.centurylink.com/etc/designs/ewcm/clientlib/images/loading_spinner.gif" alt=""/>
         <form action=""  onSubmit={handleSubmit(this.handleFormSubmit)}>
-          <div dangerouslySetInnerHTML={imageHTML} />
+          {this.props.html && <div dangerouslySetInnerHTML={imageHTML} />}
           {inputs}
           <div className="form-buttons-wrap">
             <input type="submit" className="submit submit-full" value="Submit"/>

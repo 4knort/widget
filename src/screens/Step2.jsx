@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import * as connectActions from '../actions/connectActions';
 
 class Step2 extends Component {
-  //bad example view knows about state
-  componentDidMount() {
-    setTimeout(() => {
-      this.props.changeStage('step3')
-    }, 1500)
+  componentWillUnmount() {
+    clearInterval(this.ajaxInterval);
   }
+  
+  ajaxInterval = setInterval(() => {
+    this.props.checkStatus();
+  }, 1500);
+  
   render() {
     return (
       <div className="loader">

@@ -30,17 +30,10 @@ function errorLogin() {
   }
 }
 
-function successSmsSend() {
+function successInteractiveDataSend() {
   return {
-    type: types.SUCCESS_SMS,
-    payload: 'step1'
-  }
-}
-
-function errorSmsSend() {
-  return {
-    type: types.ERROR_SMS,
-    payload: 'step1'
+    type: types.SUCCESS_INTERACTIVE,
+    payload: 'connecting'
   }
 }
 
@@ -58,15 +51,15 @@ export function sendData(data) {
   }
 }
 
-export function sendSmsData(sms) {
+export function sendInteractiveData(data) {
   return function thunkSendSms(dispatch) {
-    axios.post('url', sms)
+    axios.post('url', data)
     .then(response => {
-    dispatch(successSmsSend());
+    dispatch(successInteractiveDataSend());
     })
 
     .catch(( ) => {
-      dispatch(successSmsSend());
+      dispatch(successInteractiveDataSend());
       // dispatch(errorSmsSend());
     })
   }
@@ -85,9 +78,9 @@ function renderInteractiveElements(data) {
 
 export function checkStatus() {
   return function thunkcheckStatus(dispatch) {
-    axios.post('url')
+    axios.get('url')
     .then(response => {
-      if(response.interactive_fields_names) {        
+      if(response.interactive_fields_names.length || response.html) {        
       dispatch(renderInteractiveElements(response));
       } else {
         dispatch(changeStage(response.stage));

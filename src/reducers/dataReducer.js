@@ -49,7 +49,7 @@ export default function dataReducer(state = initialState, action) {
       stage: action.payload,
       }
     }
-    case types.SUCCESS_SMS: {
+    case types.SUCCESS_INTERACTIVE: {
       return {
       ...state,
       stage: action.payload,
@@ -74,7 +74,6 @@ export default function dataReducer(state = initialState, action) {
       }
     }
     case types.INTERACTIVE_ELEMENTS: {
-      console.log(action.payload.html)
       return {
         ...state,
         interactiveFieldsNames: action.payload.elements,

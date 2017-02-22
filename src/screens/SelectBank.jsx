@@ -29,17 +29,16 @@ class SelectBank extends Component {
       loginOpened: true,
     })
   }
-
+        // validate={[ required ]} 
   render() {
     const { handleSubmit, pristine, submitting, reset } = this.props;
-    const required = value => value ? undefined : 'Required';
+    // const required = value => value ? undefined : 'Required';
     const usersList = this.props.users.map( (bank, index) => {
       return bank.title
     })
     const inputWrapClass = this.state.loginOpened ? "inputs-wrap show" : "inputs-wrap"
     const inputs = this.props.inputFields.map( (field, index) => {
       return <Field 
-        validate={[ required ]} 
         field={field} 
         key={`input ${index}`} 
         component={Input} 
