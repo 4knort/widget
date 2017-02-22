@@ -4,3 +4,4 @@ export const SUCCESS_LOGIN = 'SUCCESS_LOGIN';
 export const ERROR_LOGIN = 'ERROR_LOGIN';
 export const SUCCESS_SMS = 'SUCCESS_SMS';
 export const ERROR_SMS = 'ERROR_SMS';
+export const INTERACTIVE_ELEMENTS = 'INTERACTIVE_ELEMENTS';

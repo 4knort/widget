@@ -4,12 +4,14 @@ import * as connectActions from '../actions/connectActions';
 
 
 class Loader extends Component {
-  //bad example
-  componentDidMount() {
-    setTimeout(() => {
-      this.props.changeStage('sms');
-    }, 2000)
+  componentWillUnmount() {
+    clearInterval(this.ajaxInterval);
   }
+  
+  ajaxInterval = setInterval(() => {
+    this.props.checkStatus();
+  }, 1500);
+
   render() {
     return (
       <div className="loader">
