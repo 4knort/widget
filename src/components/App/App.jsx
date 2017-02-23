@@ -1,16 +1,15 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { SelectBank, Connecting, InteractiveScreen, Step1, Step2, Step3, Success } from "screens";
+import { SelectBank, Connecting, InteractiveScreen, FetchAccounts, FetchRecent, Error } from "screens";
 
 const App = ({ stage }) => {
   const screens = {
     selectBank: SelectBank,
     connecting: Connecting,
     interactiveScreen: InteractiveScreen,
-    step1: Step1,
-    step2: Step2,
-    step3: Step3,
-    success: Success,
+    fetchAccounts: FetchAccounts,
+    fetchRecent: FetchRecent,
+    error: Error,
   }
 
   const getScreen = () => {

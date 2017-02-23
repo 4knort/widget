@@ -32,7 +32,8 @@ const initialState = {
     // },
   ],
   interactiveFieldsNames: [],
-  html: null,   
+  html: null, 
+  failMessage: '',  
 };
 
 export default function dataReducer(state = initialState, action) {
@@ -43,34 +44,41 @@ export default function dataReducer(state = initialState, action) {
       users: action.payload.slice(0),
       }
     }
-    case types.SUCCESS_LOGIN: {
-      return {
-      ...state,
-      stage: action.payload,
-      }
-    }
     case types.SUCCESS_INTERACTIVE: {
       return {
       ...state,
       stage: action.payload,
       }
     }
-    case types.ERROR_SMS: {
+    case types.CONNECTING: {
       return {
       ...state,
       stage: action.payload,
       }
     }
-    case types.ERROR_LOGIN: {
+    case types.FETCH_ACCOUNTS: {
       return {
       ...state,
       stage: action.payload,
       }
     }
-    case types.CHANGE_STAGE: {
+    case types.FETCH_RECENT: {
       return {
       ...state,
       stage: action.payload,
+      }
+    }
+    case types.SUCCESSFINISH: {
+      return {
+      ...state,
+      stage: action.payload,
+      }
+    }
+    case types.ERROR: {
+      return {
+      ...state,
+      failMessage: action.payload.failMessage,
+      stage: action.payload.stage,
       }
     }
     case types.INTERACTIVE_ELEMENTS: {

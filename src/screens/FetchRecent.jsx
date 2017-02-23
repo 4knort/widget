@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as connectActions from '../actions/connectActions';
 
-class Step2 extends Component {
+class FetchRecent extends Component {
   componentWillUnmount() {
     clearInterval(this.ajaxInterval);
   }
@@ -16,13 +16,15 @@ class Step2 extends Component {
       <div className="loader">
         <img src="http://www.centurylink.com/etc/designs/ewcm/clientlib/images/loading_spinner.gif" alt=""/>
         <ul className="connect-steps">
-          <li className="connect-step active">step1</li>
-          <li className="connect-step active">step2</li>
-          <li className="connect-step">step3</li>
+          <li className="connect-step active">Connecting</li>
+          <li className="connect-step active">Interactive fields</li>
+          <li className="connect-step active">Getting accounts</li>
+          <li className="connect-step active">Gettting transactions</li>
+          <li className="connect-step">Done</li>
         </ul>
       </div>
     )
   }
 }
 
-export default connect( null, connectActions)(Step2);
+export default connect( null, connectActions)(FetchRecent);

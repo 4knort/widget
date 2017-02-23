@@ -1,7 +1,9 @@
 export const SET_USERS = 'SET_USERS';
 export const CHANGE_STAGE = 'CHANGE_STAGE';
-export const SUCCESS_LOGIN = 'SUCCESS_LOGIN';
-export const ERROR_LOGIN = 'ERROR_LOGIN';
+export const CONNECTING = 'CONNECTING';
 export const SUCCESS_INTERACTIVE = 'SUCCESS_INTERACTIVE';
-export const ERROR_SMS = 'ERROR_SMS';
 export const INTERACTIVE_ELEMENTS = 'INTERACTIVE_ELEMENTS';
+export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS';
+export const FETCH_RECENT = 'FETCH_RECENT';
+export const SUCCESSFINISH = 'SUCCESSFINISH';
+export const ERROR = 'ERROR';

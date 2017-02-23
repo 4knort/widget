@@ -136,8 +136,12 @@ textarea{
   text-align: center;
   padding-bottom: 15px;
   .connect-step {
-    margin-bottom: 10px;
     font-size: 14px;
+    text-align: left;
+    max-width: 200px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding-left: 60px;
     &.active {
       font-weight: bold;
     }
