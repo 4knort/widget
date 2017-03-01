@@ -36,57 +36,72 @@ const initialState = {
   failMessage: '',  
 };
 
+function response(state, data) {
+  if(data.status === "active") {
+    return {
+      ...state,
+      stage: 'selectBank',
+    }
+  }
+
+  const { stage }  = data;
+
+  switch(stage) {
+    case "interactive": {
+      return {
+        ...state,
+        interactiveFieldsNames: data.interactive_fields_names,
+        html: data.html,
+        stage: 'interactiveScreen',
+      }
+      break;
+    }
+    case "fetch_accounts": {
+      return {
+        ...state,
+        stage: 'fetchAccounts',
+      }
+      break;
+    }
+    case "fetch_recent": {
+      return {
+        ...state,
+        stage: 'fetchRecent',
+      }
+      break;
+    }
+    case "finish": {
+      return {
+        ...state,
+        failMessage: data.failMessage,
+        stage: 'error',
+      }
+      break;
+    }
+    default: {
+      return {
+        ...state,
+        stage: 'connecting',
+      }
+    }
+  }  
+}
+
 export default function dataReducer(state = initialState, action) {
   switch(action.type) {
     case types.SET_USERS: {
       return {
-      ...state,
-      users: action.payload.slice(0),
+        ...state,
+        users: action.payload.slice(0),
       }
+    }
+    case types.PROCESSING_RESPONSE: {
+      return response(state, action.payload);
     }
     case types.SUCCESS_INTERACTIVE: {
       return {
-      ...state,
-      stage: action.payload,
-      }
-    }
-    case types.CONNECTING: {
-      return {
-      ...state,
-      stage: action.payload,
-      }
-    }
-    case types.FETCH_ACCOUNTS: {
-      return {
-      ...state,
-      stage: action.payload,
-      }
-    }
-    case types.FETCH_RECENT: {
-      return {
-      ...state,
-      stage: action.payload,
-      }
-    }
-    case types.SUCCESSFINISH: {
-      return {
-      ...state,
-      stage: action.payload,
-      }
-    }
-    case types.ERROR: {
-      return {
-      ...state,
-      failMessage: action.payload.failMessage,
-      stage: action.payload.stage,
-      }
-    }
-    case types.INTERACTIVE_ELEMENTS: {
-      return {
         ...state,
-        interactiveFieldsNames: action.payload.elements,
-        html: action.payload.html,
-        stage: action.payload.stage,
+        stage: action.payload,
       }
     }
     default: {

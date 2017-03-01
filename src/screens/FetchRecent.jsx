@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as connectActions from '../actions/connectActions';
 
+
+
 class FetchRecent extends Component {
   componentWillUnmount() {
     clearInterval(this.ajaxInterval);
   }
   
   ajaxInterval = setInterval(() => {
-    this.props.checkStatus();
+    checkStatus();
   }, 1500);
   
   render() {

@@ -47,7 +47,20 @@ class SelectBank extends Component {
         label={field.localized_name} 
       />
     })
-
+    const renderMenuTypeAhead = (option, props, index) => (
+      <div>
+        <img
+          src={option.avatar_url}
+          style={{
+            height: '24px',
+            marginRight: '10px',
+            width: '24px',
+          }}
+        />
+        <span>{option.login}</span>
+      </div>
+    )
+    
     return (
       <div>
         <form action="" onSubmit={handleSubmit(this.handleFormSubmit)}>
@@ -58,19 +71,7 @@ class SelectBank extends Component {
             onSearch={this.handleSearch}
             options={this.props.users}
             placeholder="Search for a Github user..."
-            renderMenuItemChildren = {(option, props, index) => (
-              <div>
-                <img
-                  src={option.avatar_url}
-                  style={{
-                    height: '24px',
-                    marginRight: '10px',
-                    width: '24px',
-                  }}
-                />
-                <span>{option.login}</span>
-              </div>
-            )}
+            renderMenuItemChildren = {renderMenuTypeAhead}
           /> 
           </div>       
           <div className={inputWrapClass}>
